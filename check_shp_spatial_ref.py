@@ -12,28 +12,29 @@ ref_list_check = []
 x = "filler"
 count = 0
 fail_list = []
+total_feat_count = 0
 
 # find all shps in directory
 for subdir, dirs, files in os.walk(ws):
     for file in files:
         if file.endswith(('.shp')):
-            print "______________________________"
-            print file
-            # shp path:
+			print "______________________________"
+			print file
 			shp = os.path.join(subdir, file)
-            # open shp with driver
+			# open shp with driver
 			driver = ogr.GetDriverByName('ESRI Shapefile')
-            dataSource = driver.Open(shp, 0)
-            # check if shp doesn't open
+			dataSource = driver.Open(shp, 0)
+			# check if shp doesn't open
 			if dataSource is None:
-                fail_list.append(file)
-            else:
+				fail_list.append(file)
+			else:
 				print shp
 				layer = dataSource.GetLayer()
 				# get feature count and print
 				featureCount = layer.GetFeatureCount()
 				print "Number of features:"
 				print featureCount
+				total_feat_count = total_feat_count + featureCount
 				# get spatial ref and print
 				spatialRef = layer.GetSpatialRef()
 				print "Spatial Reference"
@@ -48,6 +49,11 @@ print "______________________________"
 print "total shps checked:"
 print count
 print "______________________________"
+print "total number of features:"
+print total_feat_count
+print "______________________________"
+
+
 
 # print results
 if fail_list != []:
