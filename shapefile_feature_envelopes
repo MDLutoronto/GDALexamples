@@ -7,8 +7,8 @@ layer.ResetReading()
 layerDefinition = layer.GetLayerDefn()
 for feature in layer:
     env = feature.GetGeometryRef().GetEnvelope()
-    fieldValue = layerDefinition.GetFieldDefn(0).GetName()
-    bbox = [fieldValue, env[0], env[2], env[1], env[3]]
+    fieldName = layerDefinition.GetFieldDefn(0).GetName()
+    bbox = [fieldName, env[0], env[2], env[1], env[3]]
     print 'Layer Bounding Box ' + str(env)
     print bbox
     
