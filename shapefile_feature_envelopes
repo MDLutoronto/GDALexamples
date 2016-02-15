@@ -17,3 +17,4 @@ for feature in layer:
     #help from both http://gis.stackexchange.com/questions/3821/how-can-i-convert-a-shapefile-to-lat-and-lon-boundaries and
     # http://pcjericks.github.io/py-gdalogr-cookbook/layers.html#iterate-over-features and referenced here:
     #http://gdal.org/python/osgeo.ogr.Geometry-class.html
+    #By Marcel
