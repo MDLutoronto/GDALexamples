@@ -2,15 +2,13 @@ from osgeo import ogr
 driver = ogr.GetDriverByName("ESRI Shapefile")
 dataSource = driver.Open(shapefile, 0)
 layer = dataSource.GetLayer()
-# print out Centroids:
-for feature in layer:
-    geom = feature.GetGeometryRef()
-    print geom.Centroid().ExportToWkt()
 # print out envelopes/bounding boxes
 layer.ResetReading()
+layerDefinition = layer.GetLayerDefn()
 for feature in layer:
     env = feature.GetGeometryRef().GetEnvelope()
-    bbox = [env[0], env[2], env[1], env[3]]
+    fieldValue = layerDefinition.GetFieldDefn(i).GetName()
+    bbox = [fieldValue, env[0], env[2], env[1], env[3]]
     print env
     print bbox
     
@@ -18,3 +16,12 @@ for feature in layer:
     # http://pcjericks.github.io/py-gdalogr-cookbook/layers.html#iterate-over-features and referenced here:
     #http://gdal.org/python/osgeo.ogr.Geometry-class.html
     #By Marcel
+    
+    Below allows me to get the attribute names; 
+#for i in range(layerDefinition.GetFieldCount()):
+#    fieldName =  layerDefinition.GetFieldDefn(i).GetName()
+#    fieldTypeCode = layerDefinition.GetFieldDefn(i).GetType()
+#    fieldType = layerDefinition.GetFieldDefn(i).GetFieldTypeName(fieldTypeCode)
+#    fieldWidth = layerDefinition.GetFieldDefn(i).GetWidth()
+#    GetPrecision = layerDefinition.GetFieldDefn(i).GetPrecision()
+#    print fieldName
