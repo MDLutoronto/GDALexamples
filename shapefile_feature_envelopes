@@ -7,9 +7,10 @@ layer.ResetReading()
 layerDefinition = layer.GetLayerDefn()
 for feature in layer:
     env = feature.GetGeometryRef().GetEnvelope()
-    fieldValue = layerDefinition.GetFieldDefn(i).GetName()
+    fieldUsed = layerDefinition.GetFieldDefn(0).GetName()
+    fieldValue = fieldUsed.GetAttrValue()
     bbox = [fieldValue, env[0], env[2], env[1], env[3]]
-    print env
+    print 'Layer Bounding Box ' + str(env)
     print bbox
     
     #help from both http://gis.stackexchange.com/questions/3821/how-can-i-convert-a-shapefile-to-lat-and-lon-boundaries and
