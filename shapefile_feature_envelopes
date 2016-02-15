@@ -9,8 +9,8 @@ for feature in layer:
     env = feature.GetGeometryRef().GetEnvelope()
     fieldName = layerDefinition.GetFieldDefn(0).GetName()
     bbox = [fieldName, env[0], env[2], env[1], env[3]]
-    print 'Layer Bounding Box ' + str(env)
-    print bbox
+    #print 'Bounding Box ' + str(env)
+    print 'Bounding Box ' + str(bbox)
     
     #help from both http://gis.stackexchange.com/questions/3821/how-can-i-convert-a-shapefile-to-lat-and-lon-boundaries and
     # http://pcjericks.github.io/py-gdalogr-cookbook/layers.html#iterate-over-features and referenced here:
