@@ -1,5 +1,5 @@
-from osgeo import ogr
 import os
+from osgeo import ogr
 shapefile = "/Users/marcelfortin/Documents/data/ArcCanada2.0/prov99.shp"
 driver = ogr.GetDriverByName("ESRI Shapefile")
 dataSource = driver.Open(shapefile, 0)
