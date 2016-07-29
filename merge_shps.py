@@ -20,6 +20,7 @@ for subdir, dirs, files in os.walk(ws):
       if file.endswith(('.shp')) and x == "_":
         x = file
 
+
 # loop shps and merge to one shp calling ogr2ogr shell commands
 for subdir, dirs, files in os.walk(ws):
     for file in files:
