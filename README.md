@@ -1,2 +1,2 @@
 # GDALexamples
-little python examples using GDAL/OGR
+ python examples using GDAL/OGR for geoprocessing
