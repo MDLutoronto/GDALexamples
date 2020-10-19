@@ -1,5 +1,6 @@
 # 1) Script creates contour files for a series of DEMs in a folder. 
 # 2) script then merges the contours from that same folder and merges them into one shapefile
+
 # see http://manpages.ubuntu.com/manpages/bionic/man1/ogrmerge.1.html
 
 for files in DEM/*.img 
