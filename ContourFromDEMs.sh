@@ -8,5 +8,6 @@ do gdal_contour -a CONTOUR $files $files.shp -i 5;
 done
 
 
-ogrmerge.py -single -o DEM/DEMCONTOURS.shp DEM/*.shp -src_layer_field_name NAME #NAME is the field name that will contain the origin of the contour
+ogrmerge.py -single -o DEM/DEMCONTOURS.shp DEM/*.shp -src_layer_field_name NAME 
+#NAME is the field name that will contain the origin of the contour
 
